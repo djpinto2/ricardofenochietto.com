@@ -287,17 +287,17 @@ function initializeContactForm() {
             const message = formData.get('message');
             
             if (!name || !email || !message) {
-                alert('Por favor, complete todos los campos.');
+                alert('Please complete all fields.');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                alert('Por favor, ingrese un email válido.');
+                alert('Please enter a valid email.');
                 return;
             }
             
             // Here you would typically send the form data to a server
-            alert('Mensaje enviado correctamente. Nos pondremos en contacto pronto.');
+            alert('Message sent successfully. We will contact you soon.');
             contactForm.reset();
         });
     }
