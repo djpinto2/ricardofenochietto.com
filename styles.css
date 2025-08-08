@@ -643,7 +643,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Publications Section */
 .publications {
     padding: var(--section-padding);
-    background: var(--background);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(248, 250, 252, 0.75) 100%), url('images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .publications-tabs {
@@ -958,7 +961,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     /* Disable background-attachment: fixed on mobile for better performance */
-    .hero {
+    .hero, .publications {
         background-attachment: scroll !important;
     }
     
