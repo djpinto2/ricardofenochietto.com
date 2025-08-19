@@ -1,0 +1,89 @@
+// =============================================================================
+// ABOUT PAGE
+// =============================================================================
+
+.about {
+    @include section-padding;
+    background: $background;
+}
+
+.about-content {
+    @include grid(2, $spacing-3xl);
+    align-items: start;
+
+    @include respond-to(lg) {
+        @include grid(1, $spacing-2xl);
+    }
+}
+
+.about-text {
+    .about-intro {
+        margin-bottom: $spacing-xl;
+
+        .lead {
+            @include lead-text;
+            margin-bottom: $spacing-lg;
+        }
+    }
+
+    .about-details {
+        margin-bottom: $spacing-xl;
+
+        p {
+            @include body-text;
+            margin-bottom: $spacing-lg;
+            line-height: $line-height-relaxed;
+            color: $text-secondary;
+        }
+    }
+
+    .expertise {
+        margin-bottom: $spacing-xl;
+
+        h3 {
+            @include heading-style($font-size-xl);
+            margin-bottom: $spacing-lg;
+            color: $text-primary;
+        }
+
+        .expertise-list {
+            @include grid(1, $spacing-sm);
+
+            li {
+                @include flex-center;
+                gap: $spacing-sm;
+                color: $text-secondary;
+
+                i {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+    .credentials {
+        margin-top: $spacing-xl;
+
+        h3 {
+            @include heading-style($font-size-xl);
+            margin-bottom: $spacing-lg;
+            color: $text-primary;
+        }
+
+        .credentials-grid {
+            @include grid(2, $spacing-lg);
+
+            @include respond-to(md) {
+                @include grid(1, $spacing-lg);
+            }
+        }
+    }
+}
+
+.about-stats {
+    @include grid(1, $spacing-lg);
+
+    @include respond-to(sm) {
+        @include grid(2, $spacing-lg);
+    }
+}

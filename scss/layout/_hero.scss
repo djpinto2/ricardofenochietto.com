@@ -1,0 +1,141 @@
+// =============================================================================
+// HERO SECTION
+// =============================================================================
+
+.hero {
+    padding: $hero-padding;
+    background: linear-gradient(135deg, $background-overlay 0%, rgba($background-alt, 0.75) 100%), url('./images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: $hero-min-height;
+    @include flex-center;
+    position: relative;
+
+    @include respond-to(md) {
+        background-attachment: scroll !important;
+        padding: $spacing-3xl 0 $spacing-2xl;
+        min-height: auto;
+    }
+}
+
+.hero-container {
+    @include container;
+}
+
+.hero-content {
+    @include grid(2, $spacing-3xl);
+    align-items: center;
+
+    @include respond-to(lg) {
+        @include grid(1, $spacing-2xl);
+        text-align: center;
+    }
+}
+
+.hero-text {
+    .hero-title {
+        @include heading-style(clamp($font-size-4xl, 5vw, $font-size-6xl), $font-weight-bold);
+        margin-bottom: $spacing-md;
+        line-height: $line-height-tight;
+
+        .title-line {
+            display: block;
+
+            &:first-child {
+                color: $text-primary;
+            }
+
+            &:last-child {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .hero-subtitle {
+        @include body-text($font-size-xl, $font-weight-medium);
+        color: $text-secondary;
+        margin-bottom: $spacing-lg;
+    }
+
+    .hero-description {
+        @include body-text($font-size-lg);
+        color: $text-secondary;
+        margin-bottom: $spacing-2xl;
+        line-height: $line-height-relaxed;
+    }
+
+    .hero-buttons {
+        @include flex-center;
+        gap: $spacing-md;
+        flex-wrap: wrap;
+
+        @include respond-to(md) {
+            justify-content: center;
+        }
+
+        @include respond-to(sm) {
+            @include flex-column;
+            align-items: center;
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.hero-image {
+    @include flex-center;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    max-width: 400px;
+}
+
+.profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-large;
+    transition: $transition-normal;
+}
+
+.image-decoration {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid $primary-color;
+    border-radius: $border-radius-md;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-indicator {
+    @include flex-center;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius-full;
+    color: $primary-color;
+    text-decoration: none;
+    transition: $transition-normal;
+    @include bounce-animation;
+
+    &:hover {
+        background: $primary-color;
+        color: white;
+    }
+}

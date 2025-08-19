@@ -1,0 +1,327 @@
+// =============================================================================
+// PRINT STYLES
+// =============================================================================
+
+@media print {
+
+    // Hide non-essential elements
+    .navbar,
+    .hero-scroll,
+    .back-to-top,
+    .hamburger,
+    .nav-menu,
+    .btn,
+    .book-overlay,
+    .publication-link,
+    .academic-link {
+        display: none !important;
+    }
+
+    // Reset backgrounds and colors for better printing
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    // Ensure proper page breaks
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black;
+        background: white;
+    }
+
+    // Headings
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        color: black;
+    }
+
+    // Links
+    a {
+        color: black;
+        text-decoration: underline;
+
+        &[href^="http"]:after {
+            content: " (" attr(href) ")";
+            font-size: 10pt;
+            color: #666;
+        }
+    }
+
+    // Images
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid;
+    }
+
+    // Tables
+    table {
+        border-collapse: collapse;
+        page-break-inside: avoid;
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 4px;
+        }
+    }
+
+    // Lists
+    ul,
+    ol {
+        page-break-inside: avoid;
+    }
+
+    // Page breaks
+    .section {
+        page-break-before: auto;
+        page-break-after: auto;
+        page-break-inside: avoid;
+    }
+
+    .hero {
+        padding: 1in 0;
+        page-break-after: always;
+    }
+
+    .about,
+    .publications,
+    .books,
+    .contact {
+        page-break-before: auto;
+        page-break-after: auto;
+    }
+
+    // Cards and containers
+    .card,
+    .publication-item,
+    .book-card,
+    .credential-item,
+    .contact-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 15px;
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+
+    // Stats and numbers
+    .stat-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+
+        .stat-number {
+            font-size: 18pt;
+            font-weight: bold;
+            color: black;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            color: #666;
+        }
+    }
+
+    // Buttons (convert to text)
+    .btn {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        background: white;
+        color: black;
+        text-decoration: none;
+
+        &:hover {
+            background: #f0f0f0;
+        }
+    }
+
+    // Navigation elements
+    .nav-container,
+    .nav-logo,
+    .nav-menu {
+        display: none !important;
+    }
+
+    // Footer
+    .footer {
+        background: white;
+        color: black;
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+        margin-top: 20px;
+
+        .footer-content,
+        .footer-sections {
+            display: block;
+            text-align: left;
+        }
+
+        .footer-links {
+            display: block;
+
+            a {
+                display: block;
+                margin-bottom: 5px;
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Publications tabs
+    .publications-tabs {
+        .tab-buttons {
+            display: none;
+        }
+
+        .tab-pane {
+            display: block !important;
+            margin-bottom: 20px;
+        }
+    }
+
+    // Books grid
+    .books-grid {
+        display: block;
+
+        .book-card {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+    }
+
+    // Contact section
+    .contact-content {
+        display: block;
+
+        .contact-item {
+            margin-bottom: 15px;
+        }
+    }
+
+    // Utility classes for print
+    .print-only {
+        display: block !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    // Page margins
+    @page {
+        margin: 0.5in;
+    }
+
+    // First page
+    @page :first {
+        margin-top: 1in;
+    }
+
+    // Left and right pages (for double-sided printing)
+    @page :left {
+        margin-left: 0.75in;
+        margin-right: 0.25in;
+    }
+
+    @page :right {
+        margin-left: 0.25in;
+        margin-right: 0.75in;
+    }
+
+    // Avoid orphaned elements
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    // Ensure proper spacing
+    .section-header {
+        margin-bottom: 20px;
+
+        .section-title {
+            font-size: 18pt;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            font-size: 12pt;
+            margin-bottom: 15px;
+        }
+    }
+
+    // Optimize for black and white printing
+    .text-primary,
+    .text-secondary,
+    .text-light {
+        color: black !important;
+    }
+
+    .primary-color,
+    .accent-color {
+        color: black !important;
+    }
+
+    // Ensure readable font sizes
+    .font-size-xs {
+        font-size: 8pt !important;
+    }
+
+    .font-size-sm {
+        font-size: 10pt !important;
+    }
+
+    .font-size-base {
+        font-size: 12pt !important;
+    }
+
+    .font-size-lg {
+        font-size: 14pt !important;
+    }
+
+    .font-size-xl {
+        font-size: 16pt !important;
+    }
+
+    .font-size-2xl {
+        font-size: 18pt !important;
+    }
+
+    .font-size-3xl {
+        font-size: 20pt !important;
+    }
+
+    .font-size-4xl {
+        font-size: 24pt !important;
+    }
+
+    .font-size-5xl {
+        font-size: 28pt !important;
+    }
+
+    .font-size-6xl {
+        font-size: 32pt !important;
+    }
+}

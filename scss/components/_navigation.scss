@@ -1,0 +1,117 @@
+// =============================================================================
+// NAVIGATION
+// =============================================================================
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: $nav-background;
+    @include backdrop-blur($nav-backdrop);
+    border-bottom: 1px solid $border-color;
+    z-index: z('fixed');
+    transition: $transition-normal;
+
+    &.scrolled {
+        box-shadow: $shadow-medium;
+    }
+}
+
+.nav-container {
+    @include container;
+    @include flex-between;
+    height: $nav-height;
+}
+
+.nav-logo {
+    .logo-text {
+        @include heading-style($font-size-2xl, $font-weight-semibold);
+
+        .logo-blue {
+            color: $primary-color;
+        }
+    }
+}
+
+.nav-menu {
+    @include flex-center;
+    gap: $spacing-xl;
+
+    @include respond-to(md) {
+        position: fixed;
+        left: -100%;
+        top: $nav-height;
+        @include flex-column;
+        background: $background;
+        width: 100%;
+        text-align: center;
+        transition: $transition-normal;
+        box-shadow: $shadow-medium;
+        padding: $spacing-xl 0;
+        gap: $spacing-md;
+
+        &.active {
+            left: 0;
+        }
+    }
+}
+
+.nav-link {
+    @include body-text($font-size-base, $font-weight-medium);
+    color: $text-secondary;
+    transition: $transition-normal;
+    position: relative;
+
+    &:hover,
+    &.active {
+        color: $primary-color;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -$spacing-sm;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: $transition-normal;
+    }
+
+    &:hover::after,
+    &.active::after {
+        width: 100%;
+    }
+}
+
+.hamburger {
+    display: none;
+    @include flex-column;
+    cursor: pointer;
+    gap: $spacing-xs;
+
+    @include respond-to(md) {
+        display: flex;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background: $text-primary;
+        transition: $transition-normal;
+    }
+
+    &.active {
+        .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}

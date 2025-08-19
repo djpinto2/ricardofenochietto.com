@@ -1,0 +1,137 @@
+// =============================================================================
+// FUNCTIONS
+// =============================================================================
+
+// Color functions
+@function lighten-color($color, $percentage) {
+  @return lighten($color, $percentage);
+}
+
+@function darken-color($color, $percentage) {
+  @return darken($color, $percentage);
+}
+
+@function rgba-color($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+// Spacing functions
+@function spacing($multiplier) {
+  @return $spacing-md * $multiplier;
+}
+
+@function rem($pixels) {
+  @return ($pixels / 16) * 1rem;
+}
+
+// Typography functions
+@function line-height($font-size, $line-height) {
+  @return $line-height / $font-size;
+}
+
+// Z-index function
+@function z($layer) {
+  $z-layers: (
+    'dropdown': $z-dropdown,
+    'sticky': $z-sticky,
+    'fixed': $z-fixed,
+    'modal-backdrop': $z-modal-backdrop,
+    'modal': $z-modal,
+    'popover': $z-popover,
+    'tooltip': $z-tooltip
+  );
+  
+  @return map-get($z-layers, $layer);
+}
+
+// Breakpoint function
+@function breakpoint($name) {
+  $breakpoints: (
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    '2xl': $breakpoint-2xl
+  );
+  
+  @return map-get($breakpoints, $name);
+}
+
+// Container function
+@function container($size) {
+  $containers: (
+    'sm': $container-sm,
+    'md': $container-md,
+    'lg': $container-lg,
+    'xl': $container-xl,
+    '2xl': $container-2xl
+  );
+  
+  @return map-get($containers, $size);
+}
+
+// Math functions
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function em($pixels, $context: 16px) {
+  @return (strip-unit($pixels) / strip-unit($context)) * 1em;
+}
+
+// Utility functions
+@function get-color($color-name) {
+  $colors: (
+    'primary': $primary-color,
+    'primary-dark': $primary-dark,
+    'primary-light': $primary-light,
+    'secondary': $secondary-color,
+    'accent': $accent-color,
+    'success': $success-color,
+    'warning': $warning-color,
+    'error': $error-color,
+    'text-primary': $text-primary,
+    'text-secondary': $text-secondary,
+    'text-light': $text-light,
+    'background': $background,
+    'background-alt': $background-alt
+  );
+  
+  @return map-get($colors, $color-name);
+}
+
+@function get-font-size($size-name) {
+  $font-sizes: (
+    'xs': $font-size-xs,
+    'sm': $font-size-sm,
+    'base': $font-size-base,
+    'lg': $font-size-lg,
+    'xl': $font-size-xl,
+    '2xl': $font-size-2xl,
+    '3xl': $font-size-3xl,
+    '4xl': $font-size-4xl,
+    '5xl': $font-size-5xl,
+    '6xl': $font-size-6xl
+  );
+  
+  @return map-get($font-sizes, $size-name);
+}
+
+@function get-spacing($spacing-name) {
+  $spacings: (
+    'xs': $spacing-xs,
+    'sm': $spacing-sm,
+    'md': $spacing-md,
+    'lg': $spacing-lg,
+    'xl': $spacing-xl,
+    '2xl': $spacing-2xl,
+    '3xl': $spacing-3xl,
+    '4xl': $spacing-4xl,
+    '5xl': $spacing-5xl
+  );
+  
+  @return map-get($spacings, $spacing-name);
+} 

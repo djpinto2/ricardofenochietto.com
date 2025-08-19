@@ -1,0 +1,84 @@
+// =============================================================================
+// CARDS
+// =============================================================================
+
+.card {
+    @include card-base;
+    @include card-padding;
+}
+
+.card-header {
+    margin-bottom: $spacing-lg;
+
+    .card-title {
+        @include heading-style($font-size-xl);
+        margin-bottom: $spacing-sm;
+    }
+
+    .card-subtitle {
+        @include body-text($font-size-sm);
+        color: $text-light;
+    }
+}
+
+.card-body {
+    margin-bottom: $spacing-lg;
+}
+
+.card-footer {
+    border-top: 1px solid $border-color;
+    padding-top: $spacing-lg;
+    margin-top: auto;
+}
+
+// Specific card types
+.stat-card {
+    @include card-base;
+    @include card-padding;
+    text-align: center;
+    @include hover-lift;
+
+    .stat-number {
+        @include heading-style($font-size-3xl, $font-weight-bold);
+        color: $primary-color;
+        margin-bottom: $spacing-sm;
+    }
+
+    .stat-label {
+        @include body-text($font-size-sm);
+        color: $text-secondary;
+    }
+}
+
+.credential-item {
+    @include card-base;
+    @include card-padding;
+    @include flex-center;
+    gap: $spacing-md;
+    border-left: 4px solid $primary-color;
+    @include hover-lift;
+
+    .credential-icon {
+        flex-shrink: 0;
+        width: 3rem;
+        height: 3rem;
+        background: $primary-color;
+        border-radius: $border-radius-full;
+        @include flex-center;
+        color: white;
+        font-size: $font-size-xl;
+    }
+
+    .credential-content {
+        h4 {
+            @include heading-style($font-size-lg);
+            margin-bottom: $spacing-xs;
+        }
+
+        p {
+            @include body-text($font-size-sm);
+            color: $text-secondary;
+            line-height: $line-height-snug;
+        }
+    }
+}

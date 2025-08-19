@@ -1,0 +1,135 @@
+// =============================================================================
+// SECTIONS
+// =============================================================================
+
+.section {
+    @include section-padding;
+
+    &-sm {
+        padding: $spacing-2xl 0;
+    }
+
+    &-lg {
+        padding: $spacing-5xl 0;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+    position: relative;
+
+    .section-number {
+        display: inline-block;
+        @include body-text($font-size-sm, $font-weight-semibold);
+        color: $primary-color;
+        background: rgba($primary-color, 0.1);
+        padding: $spacing-sm $spacing-md;
+        border-radius: $border-radius-full;
+        margin-bottom: $spacing-md;
+    }
+
+    .section-title {
+        @include heading-style(clamp($font-size-3xl, 4vw, $font-size-5xl));
+        margin-bottom: $spacing-md;
+    }
+
+    .section-line {
+        width: 4rem;
+        height: 3px;
+        background: $primary-color;
+        margin: $spacing-lg auto;
+    }
+
+    .section-description {
+        @include body-text($font-size-lg);
+        color: $text-secondary;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.section-content {
+    @include container;
+}
+
+.section-grid {
+    @include grid(2, $spacing-3xl);
+    align-items: start;
+
+    @include respond-to(lg) {
+        @include grid(1, $spacing-2xl);
+    }
+}
+
+.section-sidebar {
+    @include grid(3, $spacing-3xl);
+
+    .main-content {
+        grid-column: span 2;
+    }
+
+    .sidebar {
+        grid-column: span 1;
+    }
+
+    @include respond-to(lg) {
+        @include grid(1, $spacing-2xl);
+
+        .main-content,
+        .sidebar {
+            grid-column: span 1;
+        }
+    }
+}
+
+// Section backgrounds
+.section-bg-alt {
+    background: $background-alt;
+}
+
+.section-bg-primary {
+    background: $primary-color;
+    color: white;
+
+    .section-title,
+    .section-description {
+        color: white;
+    }
+}
+
+.section-bg-gradient {
+    background: linear-gradient(135deg, $background-overlay 0%, rgba($background-alt, 0.75) 100%), url('images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    @include respond-to(md) {
+        background-attachment: scroll !important;
+    }
+}
+
+// Section spacing utilities
+.section-mt-0 {
+    margin-top: 0;
+}
+
+.section-mt-sm {
+    margin-top: $spacing-2xl;
+}
+
+.section-mt-lg {
+    margin-top: $spacing-4xl;
+}
+
+.section-mb-0 {
+    margin-bottom: 0;
+}
+
+.section-mb-sm {
+    margin-bottom: $spacing-2xl;
+}
+
+.section-mb-lg {
+    margin-bottom: $spacing-4xl;
+}

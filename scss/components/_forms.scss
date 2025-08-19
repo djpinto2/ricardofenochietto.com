@@ -1,0 +1,154 @@
+// =============================================================================
+// FORMS
+// =============================================================================
+
+.form-group {
+    margin-bottom: $spacing-lg;
+}
+
+.form-label {
+    @include body-text($font-size-sm, $font-weight-medium);
+    color: $text-primary;
+    margin-bottom: $spacing-xs;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    height: $input-height;
+    padding: $input-padding;
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    font-size: $font-size-base;
+    transition: $transition-normal;
+
+    &:focus {
+        outline: none;
+        border-color: $input-focus-color;
+        box-shadow: 0 0 0 3px rgba($input-focus-color, 0.1);
+    }
+
+    &:disabled {
+        background-color: $background-alt;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    &.error {
+        border-color: $error-color;
+
+        &:focus {
+            box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+        }
+    }
+}
+
+.form-textarea {
+    @extend .form-input;
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-select {
+    @extend .form-input;
+    cursor: pointer;
+
+    &:focus {
+        cursor: pointer;
+    }
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        width: 1.2rem;
+        height: 1.2rem;
+        accent-color: $primary-color;
+    }
+
+    .form-checkbox-label {
+        @include body-text($font-size-sm);
+        color: $text-secondary;
+        cursor: pointer;
+    }
+}
+
+.form-radio {
+    @extend .form-checkbox;
+
+    input[type="radio"] {
+        width: 1.2rem;
+        height: 1.2rem;
+        accent-color: $primary-color;
+    }
+}
+
+.form-error {
+    @include body-text($font-size-sm);
+    color: $error-color;
+    margin-top: $spacing-xs;
+}
+
+.form-help {
+    @include body-text($font-size-sm);
+    color: $text-light;
+    margin-top: $spacing-xs;
+}
+
+.form-required {
+    color: $error-color;
+    margin-left: $spacing-xs;
+}
+
+// Form layouts
+.form-row {
+    @include grid(2, $spacing-lg);
+
+    @include respond-to(md) {
+        @include grid(1, $spacing-lg);
+    }
+}
+
+.form-inline {
+    @include flex-center;
+    gap: $spacing-md;
+
+    @include respond-to(sm) {
+        @include flex-column;
+        align-items: stretch;
+    }
+}
+
+// Form validation states
+.form-input.is-valid {
+    border-color: $success-color;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($success-color, 0.1);
+    }
+}
+
+.form-input.is-invalid {
+    border-color: $error-color;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+    }
+}
+
+.valid-feedback {
+    @include body-text($font-size-sm);
+    color: $success-color;
+    margin-top: $spacing-xs;
+}
+
+.invalid-feedback {
+    @include body-text($font-size-sm);
+    color: $error-color;
+    margin-top: $spacing-xs;
+}

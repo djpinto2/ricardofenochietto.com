@@ -1,0 +1,34 @@
+// =============================================================================
+// MAIN SCSS FILE - Ricardo Fenochietto Website
+// =============================================================================
+
+// Import all modules
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'components/buttons';
+@import 'components/navigation';
+@import 'components/cards';
+@import 'components/tabs';
+@import 'components/forms';
+
+@import 'layout/header';
+@import 'layout/hero';
+@import 'layout/sections';
+@import 'layout/footer';
+@import 'layout/grid';
+
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/publications';
+@import 'pages/books';
+@import 'pages/contact';
+
+@import 'themes/animations';
+@import 'themes/responsive';
+@import 'themes/print'; 

@@ -1,0 +1,315 @@
+// =============================================================================
+// GRID SYSTEM & LAYOUT UTILITIES
+// =============================================================================
+
+// Container
+.container {
+  @include container;
+  
+  &-sm {
+    @include container($container-sm);
+  }
+  
+  &-md {
+    @include container($container-md);
+  }
+  
+  &-lg {
+    @include container($container-lg);
+  }
+  
+  &-xl {
+    @include container($container-xl);
+  }
+  
+  &-2xl {
+    @include container($container-2xl);
+  }
+}
+
+// Grid system
+.grid {
+  display: grid;
+  gap: $grid-gutter;
+  
+  &-cols-1 { grid-template-columns: repeat(1, 1fr); }
+  &-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  &-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  &-cols-6 { grid-template-columns: repeat(6, 1fr); }
+  &-cols-12 { grid-template-columns: repeat(12, 1fr); }
+  
+  // Responsive grid columns
+  @include respond-to(md) {
+    &-cols-md-1 { grid-template-columns: repeat(1, 1fr); }
+    &-cols-md-2 { grid-template-columns: repeat(2, 1fr); }
+    &-cols-md-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+  
+  @include respond-to(sm) {
+    &-cols-sm-1 { grid-template-columns: repeat(1, 1fr); }
+    &-cols-sm-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+}
+
+// Flexbox utilities
+.flex {
+  display: flex;
+  
+  &-row { flex-direction: row; }
+  &-col { flex-direction: column; }
+  &-wrap { flex-wrap: wrap; }
+  &-nowrap { flex-wrap: nowrap; }
+  
+  &-1 { flex: 1 1 0%; }
+  &-auto { flex: 1 1 auto; }
+  &-initial { flex: 0 1 auto; }
+  &-none { flex: none; }
+}
+
+// Alignment
+.items {
+  &-start { align-items: flex-start; }
+  &-end { align-items: flex-end; }
+  &-center { align-items: center; }
+  &-baseline { align-items: baseline; }
+  &-stretch { align-items: stretch; }
+}
+
+.justify {
+  &-start { justify-content: flex-start; }
+  &-end { justify-content: flex-end; }
+  &-center { justify-content: center; }
+  &-between { justify-content: space-between; }
+  &-around { justify-content: space-around; }
+  &-evenly { justify-content: space-evenly; }
+}
+
+// Spacing utilities
+.gap {
+  &-xs { gap: $spacing-xs; }
+  &-sm { gap: $spacing-sm; }
+  &-md { gap: $spacing-md; }
+  &-lg { gap: $spacing-lg; }
+  &-xl { gap: $spacing-xl; }
+  &-2xl { gap: $spacing-2xl; }
+  &-3xl { gap: $spacing-3xl; }
+}
+
+// Margin utilities
+.m {
+  &-0 { margin: 0; }
+  &-xs { margin: $spacing-xs; }
+  &-sm { margin: $spacing-sm; }
+  &-md { margin: $spacing-md; }
+  &-lg { margin: $spacing-lg; }
+  &-xl { margin: $spacing-xl; }
+  &-2xl { margin: $spacing-2xl; }
+  &-3xl { margin: $spacing-3xl; }
+  &-4xl { margin: $spacing-4xl; }
+  &-5xl { margin: $spacing-5xl; }
+  
+  // Directional margins
+  &t-0 { margin-top: 0; }
+  &t-xs { margin-top: $spacing-xs; }
+  &t-sm { margin-top: $spacing-sm; }
+  &t-md { margin-top: $spacing-md; }
+  &t-lg { margin-top: $spacing-lg; }
+  &t-xl { margin-top: $spacing-xl; }
+  &t-2xl { margin-top: $spacing-2xl; }
+  &t-3xl { margin-top: $spacing-3xl; }
+  &t-4xl { margin-top: $spacing-4xl; }
+  &t-5xl { margin-top: $spacing-5xl; }
+  
+  &b-0 { margin-bottom: 0; }
+  &b-xs { margin-bottom: $spacing-xs; }
+  &b-sm { margin-bottom: $spacing-sm; }
+  &b-md { margin-bottom: $spacing-md; }
+  &b-lg { margin-bottom: $spacing-lg; }
+  &b-xl { margin-bottom: $spacing-xl; }
+  &b-2xl { margin-bottom: $spacing-2xl; }
+  &b-3xl { margin-bottom: $spacing-3xl; }
+  &b-4xl { margin-bottom: $spacing-4xl; }
+  &b-5xl { margin-bottom: $spacing-5xl; }
+  
+  &l-0 { margin-left: 0; }
+  &l-xs { margin-left: $spacing-xs; }
+  &l-sm { margin-left: $spacing-sm; }
+  &l-md { margin-left: $spacing-md; }
+  &l-lg { margin-left: $spacing-lg; }
+  &l-xl { margin-left: $spacing-xl; }
+  &l-2xl { margin-left: $spacing-2xl; }
+  &l-3xl { margin-left: $spacing-3xl; }
+  &l-4xl { margin-left: $spacing-4xl; }
+  &l-5xl { margin-left: $spacing-5xl; }
+  
+  &r-0 { margin-right: 0; }
+  &r-xs { margin-right: $spacing-xs; }
+  &r-sm { margin-right: $spacing-sm; }
+  &r-md { margin-right: $spacing-md; }
+  &r-lg { margin-right: $spacing-lg; }
+  &r-xl { margin-right: $spacing-xl; }
+  &r-2xl { margin-right: $spacing-2xl; }
+  &r-3xl { margin-right: $spacing-3xl; }
+  &r-4xl { margin-right: $spacing-4xl; }
+  &r-5xl { margin-right: $spacing-5xl; }
+  
+  // Auto margins
+  &-auto { margin: auto; }
+  &t-auto { margin-top: auto; }
+  &b-auto { margin-bottom: auto; }
+  &l-auto { margin-left: auto; }
+  &r-auto { margin-right: auto; }
+  &x-auto { margin-left: auto; margin-right: auto; }
+  &y-auto { margin-top: auto; margin-bottom: auto; }
+}
+
+// Padding utilities
+.p {
+  &-0 { padding: 0; }
+  &-xs { padding: $spacing-xs; }
+  &-sm { padding: $spacing-sm; }
+  &-md { padding: $spacing-md; }
+  &-lg { padding: $spacing-lg; }
+  &-xl { padding: $spacing-xl; }
+  &-2xl { padding: $spacing-2xl; }
+  &-3xl { padding: $spacing-3xl; }
+  &-4xl { padding: $spacing-4xl; }
+  &-5xl { padding: $spacing-5xl; }
+  
+  // Directional padding
+  &t-0 { padding-top: 0; }
+  &t-xs { padding-top: $spacing-xs; }
+  &t-sm { padding-top: $spacing-sm; }
+  &t-md { padding-top: $spacing-md; }
+  &t-lg { padding-top: $spacing-lg; }
+  &t-xl { padding-top: $spacing-xl; }
+  &t-2xl { padding-top: $spacing-2xl; }
+  &t-3xl { padding-top: $spacing-3xl; }
+  &t-4xl { padding-top: $spacing-4xl; }
+  &t-5xl { padding-top: $spacing-5xl; }
+  
+  &b-0 { padding-bottom: 0; }
+  &b-xs { padding-bottom: $spacing-xs; }
+  &b-sm { padding-bottom: $spacing-sm; }
+  &b-md { padding-bottom: $spacing-md; }
+  &b-lg { padding-bottom: $spacing-lg; }
+  &b-xl { padding-bottom: $spacing-xl; }
+  &b-2xl { padding-bottom: $spacing-2xl; }
+  &b-3xl { padding-bottom: $spacing-3xl; }
+  &b-4xl { padding-bottom: $spacing-4xl; }
+  &b-5xl { padding-bottom: $spacing-5xl; }
+  
+  &l-0 { padding-left: 0; }
+  &l-xs { padding-left: $spacing-xs; }
+  &l-sm { padding-left: $spacing-sm; }
+  &l-md { padding-left: $spacing-md; }
+  &l-lg { padding-left: $spacing-lg; }
+  &l-xl { padding-left: $spacing-xl; }
+  &l-2xl { padding-left: $spacing-2xl; }
+  &l-3xl { padding-left: $spacing-3xl; }
+  &l-4xl { padding-left: $spacing-4xl; }
+  &l-5xl { padding-left: $spacing-5xl; }
+  
+  &r-0 { padding-right: 0; }
+  &r-xs { padding-right: $spacing-xs; }
+  &r-sm { padding-right: $spacing-sm; }
+  &r-md { padding-right: $spacing-md; }
+  &r-lg { padding-right: $spacing-lg; }
+  &r-xl { padding-right: $spacing-xl; }
+  &r-2xl { padding-right: $spacing-2xl; }
+  &r-3xl { padding-right: $spacing-3xl; }
+  &r-4xl { padding-right: $spacing-4xl; }
+  &r-5xl { padding-right: $spacing-5xl; }
+  
+  // Combined padding
+  &x-0 { padding-left: 0; padding-right: 0; }
+  &x-xs { padding-left: $spacing-xs; padding-right: $spacing-xs; }
+  &x-sm { padding-left: $spacing-sm; padding-right: $spacing-sm; }
+  &x-md { padding-left: $spacing-md; padding-right: $spacing-md; }
+  &x-lg { padding-left: $spacing-lg; padding-right: $spacing-lg; }
+  &x-xl { padding-left: $spacing-xl; padding-right: $spacing-xl; }
+  &x-2xl { padding-left: $spacing-2xl; padding-right: $spacing-2xl; }
+  &x-3xl { padding-left: $spacing-3xl; padding-right: $spacing-3xl; }
+  &x-4xl { padding-left: $spacing-4xl; padding-right: $spacing-4xl; }
+  &x-5xl { padding-left: $spacing-5xl; padding-right: $spacing-5xl; }
+  
+  &y-0 { padding-top: 0; padding-bottom: 0; }
+  &y-xs { padding-top: $spacing-xs; padding-bottom: $spacing-xs; }
+  &y-sm { padding-top: $spacing-sm; padding-bottom: $spacing-sm; }
+  &y-md { padding-top: $spacing-md; padding-bottom: $spacing-md; }
+  &y-lg { padding-top: $spacing-lg; padding-bottom: $spacing-lg; }
+  &y-xl { padding-top: $spacing-xl; padding-bottom: $spacing-xl; }
+  &y-2xl { padding-top: $spacing-2xl; padding-bottom: $spacing-2xl; }
+  &y-3xl { padding-top: $spacing-3xl; padding-bottom: $spacing-3xl; }
+  &y-4xl { padding-top: $spacing-4xl; padding-bottom: $spacing-4xl; }
+  &y-5xl { padding-top: $spacing-5xl; padding-bottom: $spacing-5xl; }
+}
+
+// Section padding
+.section {
+  @include section-padding;
+  
+  &-sm {
+    padding: $spacing-2xl 0;
+  }
+  
+  &-lg {
+    padding: $spacing-5xl 0;
+  }
+}
+
+// Display utilities
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.inline-grid { display: inline-grid; }
+.hidden { display: none; }
+
+// Position utilities
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+.static { position: static; }
+
+// Width and height utilities
+.w {
+  &-full { width: 100%; }
+  &-auto { width: auto; }
+  &-screen { width: 100vw; }
+  &-min { width: min-content; }
+  &-max { width: max-content; }
+  &-fit { width: fit-content; }
+}
+
+.h {
+  &-full { height: 100%; }
+  &-auto { height: auto; }
+  &-screen { height: 100vh; }
+  &-min { height: min-content; }
+  &-max { height: max-content; }
+  &-fit { height: fit-content; }
+}
+
+// Overflow utilities
+.overflow {
+  &-auto { overflow: auto; }
+  &-hidden { overflow: hidden; }
+  &-visible { overflow: visible; }
+  &-scroll { overflow: scroll; }
+  
+  &-x-auto { overflow-x: auto; }
+  &-x-hidden { overflow-x: hidden; }
+  &-x-visible { overflow-x: visible; }
+  &-x-scroll { overflow-x: scroll; }
+  
+  &-y-auto { overflow-y: auto; }
+  &-y-hidden { overflow-y: hidden; }
+  &-y-visible { overflow-y: visible; }
+  &-y-scroll { overflow-y: scroll; }
+} 

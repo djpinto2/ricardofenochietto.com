@@ -1,0 +1,265 @@
+// =============================================================================
+// RESPONSIVE DESIGN
+// =============================================================================
+
+// Mobile First Approach
+// Base styles are for mobile, then we add breakpoints for larger screens
+
+// Small devices (landscape phones, 480px and up)
+@include respond-above(sm) {
+    .container {
+        padding: 0 $spacing-xl;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .about-stats {
+        @include grid(2, $spacing-lg);
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@include respond-above(md) {
+    .hero-content {
+        @include grid(2, $spacing-3xl);
+        text-align: left;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .about-content {
+        @include grid(2, $spacing-3xl);
+    }
+
+    .contact-content {
+        @include grid(2, $spacing-3xl);
+    }
+
+    .books-grid {
+        @include grid(2, $spacing-xl);
+    }
+
+    .credentials-grid {
+        @include grid(2, $spacing-lg);
+    }
+
+    .footer-content {
+        @include flex-between;
+        text-align: left;
+    }
+
+    .footer-sections {
+        @include grid(2, $spacing-xl);
+    }
+}
+
+// Large devices (desktops, 1024px and up)
+@include respond-above(lg) {
+    .hero-content {
+        @include grid(2, $spacing-3xl);
+    }
+
+    .about-content {
+        @include grid(2, $spacing-3xl);
+    }
+
+    .books-grid {
+        @include grid(3, $spacing-xl);
+    }
+
+    .footer-sections {
+        @include grid(4, $spacing-xl);
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@include respond-above(xl) {
+    .container {
+        max-width: $container-xl;
+    }
+}
+
+// Extra extra large devices (larger desktops, 1400px and up)
+@include respond-above(2xl) {
+    .container {
+        max-width: $container-2xl;
+    }
+}
+
+// Specific responsive adjustments
+@include respond-to(md) {
+
+    // Disable background-attachment: fixed on mobile for better performance
+    .hero,
+    .publications {
+        background-attachment: scroll !important;
+    }
+
+    // Adjust section padding for mobile
+    .section {
+        padding: $spacing-2xl 0;
+    }
+
+    // Stack grid items vertically on mobile
+    .section-grid {
+        @include grid(1, $spacing-2xl);
+    }
+
+    // Center text on mobile
+    .hero-content,
+    .about-content {
+        text-align: center;
+    }
+
+    // Adjust button layout on mobile
+    .hero-buttons {
+        justify-content: center;
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    // Adjust navigation for mobile
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: $nav-height;
+        @include flex-column;
+        background: $background;
+        width: 100%;
+        text-align: center;
+        transition: $transition-normal;
+        box-shadow: $shadow-medium;
+        padding: $spacing-xl 0;
+        gap: $spacing-md;
+
+        &.active {
+            left: 0;
+        }
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+@include respond-to(sm) {
+
+    // Further reduce padding on very small screens
+    .container {
+        padding: 0 $spacing-md;
+    }
+
+    .section {
+        padding: $spacing-xl 0;
+    }
+
+    // Stack all grid items vertically on very small screens
+    .section-grid,
+    .about-content,
+    .contact-content {
+        @include grid(1, $spacing-xl);
+    }
+
+    .books-grid {
+        @include grid(1, $spacing-xl);
+    }
+
+    .credentials-grid {
+        @include grid(1, $spacing-lg);
+    }
+
+    // Adjust tab buttons layout
+    .tab-buttons {
+        @include flex-column;
+
+        .tab-button {
+            text-align: center;
+        }
+    }
+
+    // Adjust footer layout
+    .footer-content {
+        @include flex-column;
+        text-align: center;
+    }
+
+    .footer-sections {
+        @include grid(1, $spacing-xl);
+        text-align: center;
+    }
+}
+
+// Print styles
+@media print {
+
+    .navbar,
+    .hero-scroll,
+    .back-to-top,
+    .hamburger {
+        display: none !important;
+    }
+
+    .hero {
+        padding: $spacing-xl 0;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+
+    .btn {
+        border: 1px solid $text-primary !important;
+        background: white !important;
+        color: $text-primary !important;
+        box-shadow: none !important;
+    }
+
+    .card,
+    .publication-item,
+    .book-card {
+        box-shadow: none !important;
+        border: 1px solid $border-color !important;
+    }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000080;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --border-color: #000000;
+        --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.8);
+        --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.8);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.8);
+    }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .scroll-indicator {
+        animation: none;
+    }
+}
+
+// Dark mode support (if needed in the future)
+@media (prefers-color-scheme: dark) {
+    // Dark mode styles can be added here
+    // This is just a placeholder for future implementation
+}

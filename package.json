@@ -1,0 +1,38 @@
+{
+  "name": "ricardo-fenochietto-website",
+  "version": "1.0.0",
+  "description": "Personal website for Ricardo Fenochietto - Economist & Author",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch scss:css --style compressed",
+    "sass:build": "sass scss:css --style compressed",
+    "sass:dev": "sass scss:css --style expanded --source-map",
+    "build": "node build.js --production",
+    "build:dev": "node build.js",
+    "dev": "npm run sass:dev",
+    "watch": "node build.js --watch",
+    "clean": "node build.js --clean",
+    "start": "npm run build && echo 'Build completed! Open index.html in your browser'",
+    "analyze": "node build.js --production && echo 'CSS analysis completed'",
+    "deploy": "npm run build && ./deploy.sh",
+    "setup": "npm install && npm run build && echo 'Setup completed! Project ready to use.'",
+    "help": "echo 'Available commands: npm run build | npm run sass | npm run deploy | npm run clean'"
+  },
+  "keywords": [
+    "website",
+    "economist",
+    "author",
+    "fiscal-policy",
+    "IMF"
+  ],
+  "author": "Ricardo Fenochietto",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
