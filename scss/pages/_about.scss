@@ -82,8 +82,28 @@
 
 .about-stats {
     @include grid(1, $spacing-lg);
+    margin-bottom: $spacing-3xl;
 
     @include respond-to(sm) {
         @include grid(2, $spacing-lg);
+    }
+}
+
+.credentials {
+    margin-top: $spacing-3xl;
+
+    h3 {
+        @include heading-style($font-size-xl, $font-weight-semibold);
+        color: $text-primary;
+        margin-bottom: $spacing-xl;
+        text-align: center;
+    }
+
+    .credentials-grid {
+        @include grid(2, $spacing-lg);
+
+        @include respond-to(md) {
+            @include grid(1, $spacing-lg);
+        }
     }
 }
