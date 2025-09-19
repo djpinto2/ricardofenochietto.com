@@ -10,12 +10,14 @@
 @import 'base/reset';
 @import 'base/typography';
 @import 'base/utilities';
+@import 'base/performance';
 
 @import 'components/buttons';
 @import 'components/navigation';
 @import 'components/cards';
 @import 'components/tabs';
 @import 'components/forms';
+@import 'components/interactive';
 
 @import 'layout/header';
 @import 'layout/hero';

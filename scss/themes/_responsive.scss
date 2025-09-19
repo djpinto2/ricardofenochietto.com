@@ -125,28 +125,7 @@
         }
     }
 
-    // Adjust navigation for mobile
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: $nav-height;
-        @include flex-column;
-        background: $background;
-        width: 100%;
-        text-align: center;
-        transition: $transition-normal;
-        box-shadow: $shadow-medium;
-        padding: $spacing-xl 0;
-        gap: $spacing-md;
-
-        &.active {
-            left: 0;
-        }
-    }
-
-    .hamburger {
-        display: flex;
-    }
+    // Navigation stays visible on mobile (hamburger removed)
 }
 
 @include respond-to(sm) {

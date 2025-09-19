@@ -38,21 +38,16 @@
     gap: $spacing-xl;
 
     @include respond-to(md) {
-        position: fixed;
-        left: -100%;
-        top: $nav-height;
-        @include flex-column;
-        background: $background;
-        width: 100%;
-        text-align: center;
-        transition: $transition-normal;
-        box-shadow: $shadow-medium;
-        padding: $spacing-xl 0;
+        @include flex-center;
         gap: $spacing-md;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-        &.active {
-            left: 0;
-        }
+    @include respond-to(sm) {
+        @include flex-column;
+        gap: $spacing-sm;
+        align-items: center;
     }
 }
 
@@ -84,34 +79,4 @@
     }
 }
 
-.hamburger {
-    display: none;
-    @include flex-column;
-    cursor: pointer;
-    gap: $spacing-xs;
-
-    @include respond-to(md) {
-        display: flex;
-    }
-
-    .bar {
-        width: 25px;
-        height: 3px;
-        background: $text-primary;
-        transition: $transition-normal;
-    }
-
-    &.active {
-        .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-    }
-}
+// Hamburger menu removed - navigation is always visible

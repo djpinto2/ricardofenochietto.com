@@ -4,7 +4,7 @@
 
 .publications {
     @include section-padding;
-    background: linear-gradient(135deg, $background-overlay 0%, rgba($background-alt, 0.75) 100%), url('images/fondo.jpg');
+    background: linear-gradient(135deg, $background-overlay 0%, rgba($background-alt, 0.75) 100%), url('/images/fondo.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

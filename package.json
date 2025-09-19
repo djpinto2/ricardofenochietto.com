@@ -15,6 +15,7 @@
     "start": "npm run build && echo 'Build completed! Open index.html in your browser'",
     "analyze": "node build.js --production && echo 'CSS analysis completed'",
     "deploy": "npm run build && ./deploy.sh",
+    "build:optimized": "node build-optimized.js",
     "setup": "npm install && npm run build && echo 'Setup completed! Project ready to use.'",
     "help": "echo 'Available commands: npm run build | npm run sass | npm run deploy | npm run clean'"
   },
