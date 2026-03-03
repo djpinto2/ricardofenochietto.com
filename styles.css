@@ -136,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero {
     padding: 8rem 0 6rem;
-    background-image: url('images/fondo.jpg'), linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.85) 100%);
+    background-image: url('/ricardofenochietto.com/images/fondo.jpg'), linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.85) 100%);
     background-size: cover, cover;
     background-position: center, center;
     background-attachment: fixed;
@@ -567,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .publications {
     padding: var(--section-padding);
-    background-image: url('images/fondo.jpg'), linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.85) 100%);
+    background-image: url('/ricardofenochietto.com/images/fondo.jpg'), linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.85) 100%);
     background-size: cover, cover;
     background-position: center, center;
     background-attachment: fixed;
