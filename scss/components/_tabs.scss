@@ -1,0 +1,116 @@
+// =============================================================================
+// TABS
+// =============================================================================
+
+.tab-buttons {
+    @include flex-center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-2xl;
+    border-bottom: 2px solid $border-color;
+    overflow-x: auto;
+
+    @include respond-to(md) {
+        justify-content: center;
+    }
+
+    @include respond-to(sm) {
+        @include flex-column;
+
+        .tab-button {
+            text-align: center;
+        }
+    }
+}
+
+.tab-button {
+    padding: $spacing-md $spacing-lg;
+    background: none;
+    border: none;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: $transition-normal;
+    white-space: nowrap;
+
+    &.active,
+    &:hover {
+        color: $primary-color;
+        border-bottom-color: $primary-color;
+    }
+}
+
+.tab-pane {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.tab-content {
+    .publication-item {
+        @include card-base;
+        @include card-padding;
+        margin-bottom: $spacing-xl;
+        border-left: 4px solid $primary-color;
+        @include hover-lift;
+
+        .publication-meta {
+            @include flex-center;
+            gap: $spacing-md;
+            margin-bottom: $spacing-md;
+            flex-wrap: wrap;
+
+            .publication-type {
+                background: $primary-color;
+                color: white;
+                padding: $spacing-xs $spacing-md;
+                border-radius: $border-radius-full;
+                font-size: $font-size-xs;
+                font-weight: $font-weight-medium;
+            }
+
+            .publication-year {
+                background: $secondary-color;
+                color: white;
+                padding: $spacing-xs $spacing-md;
+                border-radius: $border-radius-full;
+                font-size: $font-size-xs;
+                font-weight: $font-weight-medium;
+            }
+        }
+
+        .publication-title {
+            @include heading-style($font-size-xl);
+            margin-bottom: $spacing-sm;
+        }
+
+        .publication-authors {
+            @include body-text($font-size-sm);
+            color: $text-light;
+            margin-bottom: $spacing-md;
+            font-style: italic;
+        }
+
+        .publication-description {
+            @include body-text;
+            color: $text-secondary;
+            line-height: $line-height-snug;
+            margin-bottom: $spacing-md;
+        }
+
+        .publication-link {
+            color: $primary-color;
+            text-decoration: none;
+            font-weight: $font-weight-medium;
+            @include flex-center;
+            gap: $spacing-sm;
+            transition: $transition-normal;
+
+            &:hover {
+                color: $primary-dark;
+            }
+        }
+    }
+}

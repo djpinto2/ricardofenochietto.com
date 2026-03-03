@@ -1,0 +1,92 @@
+// =============================================================================
+// CONTACT PAGE
+// =============================================================================
+
+.contact {
+    @include section-padding;
+    background: $background-alt;
+}
+
+.contact-content {
+    @include grid(2, $spacing-3xl);
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include respond-to(lg) {
+        @include grid(1, $spacing-2xl);
+    }
+}
+
+.contact-item {
+    @include flex-center;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    padding: $spacing-lg;
+    background: $background;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-light;
+    transition: $transition-normal;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-medium;
+    }
+
+    .contact-icon {
+        flex-shrink: 0;
+        width: 3rem;
+        height: 3rem;
+        background: $primary-color;
+        color: white;
+        border-radius: $border-radius-full;
+        @include flex-center;
+        font-size: $font-size-xl;
+    }
+
+    .contact-details {
+        h3 {
+            @include heading-style($font-size-lg);
+            margin-bottom: $spacing-sm;
+        }
+
+        p {
+            @include body-text;
+            line-height: $line-height-snug;
+        }
+    }
+}
+
+.contact-links {
+    h3 {
+        @include heading-style($font-size-lg);
+        margin-bottom: $spacing-lg;
+        color: $text-primary;
+    }
+
+    .academic-links {
+        @include flex-column;
+        gap: $spacing-md;
+
+        .academic-link {
+            @include flex-center;
+            gap: $spacing-sm;
+            padding: $spacing-md;
+            background: $background;
+            border-radius: $border-radius-md;
+            text-decoration: none;
+            color: $text-secondary;
+            transition: $transition-normal;
+            box-shadow: $shadow-light;
+
+            &:hover {
+                color: $primary-color;
+                transform: translateY(-2px);
+                box-shadow: $shadow-medium;
+            }
+
+            i {
+                color: $primary-color;
+            }
+        }
+    }
+}

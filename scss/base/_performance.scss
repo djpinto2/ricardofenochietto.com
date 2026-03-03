@@ -1,0 +1,137 @@
+// =============================================================================
+// PERFORMANCE OPTIMIZATIONS
+// =============================================================================
+
+// Optimize rendering
+* {
+    box-sizing: border-box;
+}
+
+// GPU acceleration for animations
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+// Optimize images
+img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+}
+
+// Optimize fonts
+@font-face {
+    font-display: swap;
+}
+
+// Optimize critical rendering path
+.critical {
+    font-display: swap;
+}
+
+// Optimize animations
+.optimized-animation {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+// Optimize scrolling
+.smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+// Optimize layout shifts
+.aspect-ratio {
+    position: relative;
+    
+    &::before {
+        content: '';
+        display: block;
+        padding-top: 56.25%; // 16:9 aspect ratio
+    }
+    
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Optimize text rendering
+.text-optimized {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Optimize transitions
+.transition-optimized {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+}
+
+// Optimize visibility
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.visibility-visible {
+    visibility: visible;
+}
+
+// Optimize content loading
+.content-loading {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    &.loaded {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Optimize hover states
+.hover-optimized {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Optimize focus states
+.focus-optimized {
+    transition: outline 0.2s ease;
+    
+    &:focus {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+}
+
+// Optimize media queries
+@media (prefers-reduced-motion: reduce) {
+    .transition-optimized,
+    .hover-optimized {
+        transition: none;
+    }
+}
+
+// Optimize print styles
+@media print {
+    .transition-optimized,
+    .hover-optimized {
+        transition: none !important;
+    }
+    
+    .gpu-accelerated {
+        transform: none !important;
+    }
+}

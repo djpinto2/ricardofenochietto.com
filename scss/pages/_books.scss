@@ -1,0 +1,107 @@
+// =============================================================================
+// BOOKS PAGE
+// =============================================================================
+
+.books {
+    @include section-padding;
+    background: $background-alt;
+}
+
+.books-grid {
+    @include grid(3, $spacing-xl);
+
+    @include respond-to(lg) {
+        @include grid(2, $spacing-xl);
+    }
+
+    @include respond-to(md) {
+        @include grid(1, $spacing-xl);
+    }
+}
+
+.book-card {
+    @include card-base;
+    @include flex-column;
+
+    .book-image {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 2/3;
+        height: 300px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: $transition-normal;
+        }
+
+        .book-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba($primary-color, 0.9);
+            @include flex-center;
+            opacity: 0;
+            transition: $transition-normal;
+        }
+
+        &:hover .book-overlay {
+            opacity: 1;
+        }
+    }
+
+    .book-content {
+        @include card-padding;
+        @include flex-column;
+        flex-grow: 1;
+
+        .book-title {
+            @include heading-style($font-size-xl);
+            margin-bottom: $spacing-sm;
+            line-height: $line-height-snug;
+        }
+
+        .book-subtitle {
+            font-style: italic;
+            color: $text-secondary;
+            margin-bottom: $spacing-sm;
+        }
+
+        .book-author,
+        .book-publisher {
+            @include body-text($font-size-sm);
+            color: $text-light;
+            margin-bottom: $spacing-xs;
+        }
+
+        .book-description {
+            color: $text-secondary;
+            line-height: $line-height-normal;
+            margin: $spacing-md 0;
+            flex-grow: 1;
+            @include text-clamp(4);
+        }
+
+        .book-links {
+            @include flex-center;
+            gap: $spacing-md;
+            margin-top: auto;
+
+            .book-link {
+                color: $primary-color;
+                text-decoration: none;
+                font-size: $font-size-sm;
+                @include flex-center;
+                gap: $spacing-xs;
+                transition: $transition-normal;
+
+                &:hover {
+                    color: $primary-dark;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+// =============================================================================
+// NAVIGATION
+// =============================================================================
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: $nav-background;
+    @include backdrop-blur($nav-backdrop);
+    border-bottom: 1px solid $border-color;
+    z-index: z('fixed');
+    transition: $transition-normal;
+
+    &.scrolled {
+        box-shadow: $shadow-medium;
+    }
+}
+
+.nav-container {
+    @include container;
+    @include flex-between;
+    height: $nav-height;
+}
+
+.nav-logo {
+    .logo-text {
+        @include heading-style($font-size-2xl, $font-weight-semibold);
+
+        .logo-blue {
+            color: $primary-color;
+        }
+    }
+}
+
+.nav-menu {
+    @include flex-center;
+    gap: $spacing-xl;
+
+    @include respond-to(md) {
+        @include flex-center;
+        gap: $spacing-md;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @include respond-to(sm) {
+        @include flex-column;
+        gap: $spacing-sm;
+        align-items: center;
+    }
+}
+
+.nav-link {
+    @include body-text($font-size-base, $font-weight-medium);
+    color: $text-secondary;
+    transition: $transition-normal;
+    position: relative;
+
+    &:hover,
+    &.active {
+        color: $primary-color;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -$spacing-sm;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: $transition-normal;
+    }
+
+    &:hover::after,
+    &.active::after {
+        width: 100%;
+    }
+}
+
+// Hamburger menu removed - navigation is always visible

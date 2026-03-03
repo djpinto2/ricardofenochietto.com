@@ -1,0 +1,61 @@
+// =============================================================================
+// HEADER
+// =============================================================================
+
+// Header styles are included in navigation.scss
+// This file can be used for additional header-specific styles if needed
+
+.header {
+    position: relative;
+    z-index: z('sticky');
+}
+
+.header-top {
+    background: $background-alt;
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid $border-color;
+
+    .header-top-content {
+        @include container;
+        @include flex-between;
+
+        .header-contact {
+            @include flex-center;
+            gap: $spacing-lg;
+
+            @include respond-to(md) {
+                display: none;
+            }
+
+            .contact-item {
+                @include flex-center;
+                gap: $spacing-xs;
+                color: $text-secondary;
+                font-size: $font-size-sm;
+
+                i {
+                    color: $primary-color;
+                }
+            }
+        }
+
+        .header-social {
+            @include flex-center;
+            gap: $spacing-sm;
+
+            .social-link {
+                @include flex-center;
+                width: 2rem;
+                height: 2rem;
+                border-radius: $border-radius-full;
+                color: $text-secondary;
+                transition: $transition-normal;
+
+                &:hover {
+                    color: $primary-color;
+                    background: rgba($primary-color, 0.1);
+                }
+            }
+        }
+    }
+}
